@@ -1,0 +1,164 @@
+/*TODO refactor for mobile*/
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+#background{
+    background: linear-gradient(
+            rgba(0, 0, 0, 0.9),
+            rgba(0, 0, 100, 0.6)), url("../images/bg1.jpg");
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    display: table;
+}
+
+#login-container *{
+    font-family: "Helvetica Neue", "Helvetica", "Catamaran", "Arial", sans-serif;
+    font-weight: normal;
+    line-height: 1em;
+    box-sizing: border-box;
+    color: #aaa;
+}
+
+#login-container {
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    max-width: 1024px;
+}
+
+#input-container{
+    width: 400px;
+    padding: 45px;
+    float: left;
+    border-right: 1px solid #999;
+}
+
+#input-container h2{
+    text-align: center;
+}
+
+
+#input-container label{
+    color: #a0a0a0;
+    font-size: 14px;
+    margin-top: 15px;
+    font-weight: bold;
+    display: block;
+}
+
+#input-container input[type="text"],
+#input-container input[type="password"],
+#input-container input[type="email"]{
+    display: block;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid #fff;
+    height: 27px;
+    line-height: 27px;
+    width: 100%;
+    color: #fff;
+    font-size: 15px;
+}
+/*allows transparent background override of chrome user agent styles*/
+@-webkit-keyframes autofill {
+    to {
+        color: #fff;
+        background: transparent;
+    }
+}
+
+input:-webkit-autofill {
+    -webkit-animation-name: autofill;
+    -webkit-animation-fill-mode: both;
+}
+
+input::placeholder {
+    color: #fff;
+}
+
+/* Mozilla Firefox 4 to 18 */
+:-moz-placeholder {
+    color:    #fff;
+    opacity:  1;
+}
+
+/* Mozilla Firefox 19+ */
+::-moz-placeholder {
+    color:    #fff;
+    opacity:  1;
+}
+
+#input-container button{
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    color: #fff;
+    display: block;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin: 20px auto;
+    height: 41px;
+    width: 100%;
+}
+
+#input-container button:hover{
+    cursor: pointer;
+    background-color: rgba(77,25,149, 0.7);
+    color: #fff;
+}
+
+#input-container .errorMessage{
+    color: #01fa00;
+    font-size: 13px;
+    display: block;
+}
+
+.create-account-text{
+    text-align: center;
+}
+
+.create-account-text{
+    font-weight: bold;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+#register-form,
+#login-form{
+    display: none;
+}
+
+#login-text{
+    padding: 45px;
+    display: table-cell;
+}
+
+#login-text h1{
+    color: #01fa00;
+    font-size: 60px;
+    font-weight: bold;
+
+}
+
+#login-text h2{
+     margin: 35px 0;
+    color: #fff;
+
+ }
+
+#login-text ul{
+    padding: 0;
+
+}
+
+#login-text li{
+    color: #fff;
+    font-size: 20px;
+    list-style-type: none;
+    padding: 5px 30px;
+    background: url("../images/icons/checkmark.png") no-repeat;
+}
+
