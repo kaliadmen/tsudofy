@@ -6,8 +6,8 @@
 
     $db['db_host'] = 'localhost';
     $db['db_user'] = 'root' ;
-    $db['db_password'] = '';
-    $db['db_name'] = '';
+    $db['db_password'] = '1qaz@WSX3edc$RFV';
+    $db['db_name'] = 'spotify';
 
 
     foreach($db as $key => $value){

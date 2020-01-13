@@ -162,3 +162,25 @@ input::placeholder {
     background: url("../images/icons/checkmark.png") no-repeat;
 }
 
+@media(max-width: 480px) {
+    #input-container{
+        width: 100%;
+        margin-top: 20%;
+        padding: 0;
+        float: left;
+        border: none;
+    }
+
+    #login-text{
+        padding: 0;
+        display: table-cell;
+    }
+
+    #login-text h1{
+        color: #01fa00;
+        font-size: 3.5rem;
+        font-weight: bold;
+        margin-top: 21%;
+
+    }
+}

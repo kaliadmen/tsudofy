@@ -1,0 +1,145 @@
+/*TODO refactor for mobile*/
+*{
+    font-family: "Helvetica Neue", "Helvetica", "Catamaran", "Arial", sans-serif;
+    color: white;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#now-playing-bar-container{
+    width: 100%;
+    background-color: #282828;
+    bottom: 0;
+    min-width: 620px;
+    position: fixed;
+}
+
+#now-playing-bar{
+    display: flex;
+    height: 90px;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+.control-button{
+    background-color: transparent;
+    border: none;
+    vertical-align: middle;
+}
+
+.control-button img{
+    width: 25px;
+    height: 25px;
+}
+
+.player-controls .buttons{
+    margin: 0 auto;
+    display: table;
+
+}
+
+.control-button.play img,
+.control-button.pause img{
+    width: 37px;
+    height: 37px;
+}
+.control-button:hover{
+    cursor: pointer;
+}
+
+#now-playing-left,
+#now-playing-right{
+    width: 30%;
+    min-width: 180px;
+}
+
+#now-playing-right{
+    position: relative;
+    margin-top: 16px;
+}
+
+#now-playing-center{
+    width: 40%;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#now-playing-bar .content{
+    width: 100%;
+    height: 100%;
+}
+
+.progress-time{
+    color: #a0a0a0;
+    font-size: 11px;
+    min-width: 40px;
+    text-align: center;
+}
+.progress-bar{
+    width: 100%;
+    height: 12px;
+    display: inline-flex;
+    cursor: pointer;
+}
+
+.progress-bar-bg{
+    background-color: #404040;
+    height: 4px;
+    width: 100%;
+    border-radius: 2px;
+}
+.progress{
+    background-color: #a0a0a0;
+    height: 4px;
+    width: 0;
+    border-radius: 2px;
+}
+
+.playback-bar{
+    display: flex;
+}
+
+.playback-bar .progress-bar{
+    margin-top: 3px;
+}
+
+#now-playing-left .album-artwork{
+    height: 100%;
+    max-width: 57px;
+    margin-right: 15px;
+    float: left;
+    background-size: cover;
+}
+
+#now-playing-left .track-info{
+    display: table;
+}
+
+#now-playing-left .track-info .track-name{
+    margin: 6px 0;
+    display: inline-block;
+    width: 100%;
+}
+
+#now-playing-left .track-info .artist-name span{
+    font-size: 12px;
+    color: #a0a0a0;
+}
+
+#now-playing-right .volume-bar{
+    width: 180px;
+    position: absolute;
+    right: 0;
+}
+
+#now-playing-right .volume-bar .progress-bar{
+    width: 125px;
+    position: absolute;
+    top: 35%;
+}
