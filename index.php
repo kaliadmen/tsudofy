@@ -20,7 +20,35 @@
     <title>Tsudo Stream</title>
 </head>
 <body>
-    <div id="now-playing-bar-container">
+    <div id="main-container">
+        <div id="top-container">
+        <div id="navbar-container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <img src="./assets/images/icons/logo.png" alt="Logo">
+                </a>
+
+                <div class="nav-item-container">
+                    <div class="nav-item">
+                        <a href="search.php" class="nav-item-link">Search
+                            <img src="./assets/images/icons/search.png" class="icon" alt="Search"></a>
+                    </div>
+                </div>
+                <div class="nav-item-container">
+                    <div class="nav-item">
+                        <a href="browse.php" class="nav-item-link">Browse</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="your_music.php" class="nav-item-link">Your Music</a>
+                    </div>
+                    <div class="nav-item">
+                        <a href="profile.php" class="nav-item-link">Kei Nagase</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        </div>
+        <div id="now-playing-bar-container">
         <div id="now-playing-bar">
             <div id="now-playing-left">
                 <div class="content">
@@ -88,6 +116,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </body>
 </html>
