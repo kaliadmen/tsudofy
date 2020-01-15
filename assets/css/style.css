@@ -2,12 +2,19 @@
 *{
     font-family: "Helvetica Neue", "Helvetica", "Catamaran", "Arial", sans-serif;
     color: white;
+    letter-spacing: 1px;
 }
 
-html, body {
+html, body{
     margin: 0;
     padding: 0;
     height: 100%;
+}
+
+body{
+    background-color: #181818;
+    font-size: 14px;
+    min-width: 720px;
 }
 
 #top-container{
@@ -21,6 +28,7 @@ html, body {
     height: 100vh;
     position: fixed;
     left: 0;
+    top: 0;
 }
 
 .navbar{
@@ -69,6 +77,48 @@ html, body {
     width: 25px;
 }
 
+#main-view-container{
+    margin-left: 220px;
+    padding-bottom: 90px;
+    width: calc(100% - 220px);
+}
+
+#main-view-container #main-content{
+    padding: 0 20px;
+}
+
+.page-heading-lg{
+    padding: 20px;
+    text-align: center;
+}
+
+.grid-view-item{
+    display: inline-block;
+    margin-right: 20px;
+    width: 29%;
+    max-width: 200px;
+    min-width: 150px;
+    margin-bottom: 20px;
+}
+
+.grid-view-item a{
+    text-decoration: none;
+}
+
+.grid-view-item img{
+    width: 100%;
+    height: 200px;
+}
+
+.grid-view-info{
+    font-weight: 300;
+    text-align: center;
+    padding: 5px 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
 #now-playing-bar-container{
     width: 100%;
     background-color: #282828;
@@ -106,6 +156,7 @@ html, body {
     width: 37px;
     height: 37px;
 }
+
 .control-button:hover{
     cursor: pointer;
 }
@@ -140,6 +191,7 @@ html, body {
     min-width: 40px;
     text-align: center;
 }
+
 .progress-bar{
     width: 100%;
     height: 12px;
@@ -153,6 +205,7 @@ html, body {
     width: 100%;
     border-radius: 2px;
 }
+
 .progress{
     background-color: #a0a0a0;
     height: 4px;
