@@ -1,11 +1,15 @@
 <?php
-include ("includes/config.php");
+    include ("includes/config.php");
+    //Artist class must be included before Album class. The Album class returns an Artist is some functions
+    include("includes/classes/Artist.php");
+    include("includes/classes/Album.php");
+    include("includes/classes/Song.php");
 
-if(isset($_SESSION['userLoggedIn'])){
-    $userLoggedIn = $_SESSION['userLoggedIn'];
-} else{
-    header("Location: register.php");
-}
+    if(isset($_SESSION['userLoggedIn'])){
+        $userLoggedIn = $_SESSION['userLoggedIn'];
+    } else{
+        header("Location: register.php");
+    }
 
 ?>
 

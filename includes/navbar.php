@@ -1,6 +1,6 @@
 <div id="navbar-container">
     <nav class="navbar">
-        <a href="#" class="logo">
+        <a href="index.php" class="logo">
             <img src="./assets/images/icons/logo.png" alt="Logo">
         </a>
 
