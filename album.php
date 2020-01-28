@@ -17,7 +17,6 @@
         }
     }
 ?>
-
 <div class="entity-info">
     <div class="left-section">
         <img src="<?php echo $album->getArtworkPath();?>" class="" alt="Album Artwork">
@@ -40,7 +39,7 @@
 
                 echo"<li class='tracklist-row'>
                         <div class='track-count'>
-                            <img src='./assets/images/icons/play-white.png' alt='Play' class='play'>
+                            <img src='./assets/images/icons/play-white.png' alt='Play' class='play' onclick='setTrack(\"".$albumSong->getId()."\", tempPlaylist, true)'>
                             <span class='track-number'>$index</span>
                         </div>
                         <div class='track-info'>
@@ -58,6 +57,10 @@
                 $index++;
             }
         ?>
+        <script>
+            let tempSongIds = '<?php echo json_encode($songIdArray);?>';
+            tempPlaylist = JSON.parse(tempSongIds);
+        </script>
     </ul>
 </div>
 

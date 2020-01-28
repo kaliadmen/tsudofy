@@ -39,7 +39,8 @@ class Album {
 
     public function getNumberOfSongs() {
         $query = mysqli_query($this->connection, "SELECT COUNT(*) FROM songs WHERE album='{$this->id}'");
-        return mysqli_num_rows($query);
+        $row = mysqli_fetch_array($query);
+        return $row[0];
     }
 
     public function getSongIds() {
