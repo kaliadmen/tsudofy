@@ -1,24 +1,25 @@
 <div id="navbar-container">
     <nav class="navbar">
-        <a href="index.php" class="logo">
+        <span role="link" tabindex="0" onclick="openPage('index.php')" class="logo">
             <img src="./assets/images/icons/logo.png" alt="Logo">
-        </a>
+        </span>
 
         <div class="nav-item-container">
             <div class="nav-item">
-                <a href="search.php" class="nav-item-link">Search
-                    <img src="./assets/images/icons/search.png" class="icon" alt="Search"></a>
+                <span role="link"tabindex="0" onclick="openPage('search.php')" class="nav-item-link">Search
+                    <img src="./assets/images/icons/search.png" class="icon" alt="Search">
+                </span>
             </div>
         </div>
         <div class="nav-item-container">
             <div class="nav-item">
-                <a href="browse.php" class="nav-item-link">Browse</a>
+                <span role="link" tabindex="0" onclick="openPage('browse.php')" class="nav-item-link">Browse</span>
             </div>
             <div class="nav-item">
-                <a href="your_music.php" class="nav-item-link">Your Music</a>
+                <span role="link" tabindex="0" onclick="openPage('your_music.php')" class="nav-item-link">Your Music</span>
             </div>
             <div class="nav-item">
-                <a href="profile.php" class="nav-item-link">Kei Nagase</a>
+                <span role="link" tabindex="0" onclick="openPage('profile.php')" class="nav-item-link">Kei Nagase</span>
             </div>
         </div>
     </nav>

@@ -1,5 +1,5 @@
 <?php
-    include("./includes/header.php");
+    include("./includes/includedFiles.php");
 
     if(isset($_GET['id'])){
         $albumId = $_GET['id'];
@@ -16,6 +16,7 @@
             echo 's';
         }
     }
+
 ?>
 <div class="entity-info">
     <div class="left-section">
@@ -64,6 +65,4 @@
     </ul>
 </div>
 
-
-<?php include("./includes/footer.php");?>
 

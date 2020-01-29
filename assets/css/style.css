@@ -45,6 +45,7 @@ body{
 
 #navbar-container .logo img{
     width: 32px;
+    cursor: pointer;
 }
 
 .nav-item-container{
@@ -64,6 +65,7 @@ body{
 .nav-item .nav-item-link{
     color: #a0a0a0;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .nav-item .nav-item-link:hover{
@@ -102,13 +104,10 @@ body{
     margin-bottom: 20px;
 }
 
-.grid-view-item a{
-    text-decoration: none;
-}
-
 .grid-view-item img{
     width: 100%;
     height: 200px;
+    cursor: pointer;
 }
 
 .grid-view-info{

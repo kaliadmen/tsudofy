@@ -3,10 +3,22 @@ let shufflePlaylist = [];
 let tempPlaylist = [];
 let currentPlaylistIndex = 0;
 let audioElement;
+let loggedInUser;
 let mouseDown = false;
 let repeat = false;
 let shuffle = false;
 
+
+function openPage(url) {
+    if(url.indexOf("?" === -1)){
+        url = url + "?";
+    }
+
+    let encodedUrl = encodeURI(url + "&loggedInUser=" + loggedInUser);
+    $("#main-content").load(encodedUrl);
+    $("body").scrollTop(0);
+    history.pushState(null, null, url);
+}
 
 function Audio(){
 

@@ -7,6 +7,7 @@
 
     if(isset($_SESSION['userLoggedIn'])){
         $userLoggedIn = $_SESSION['userLoggedIn'];
+        echo "<script>loggedInUser = '".$userLoggedIn."';</script>";
     } else{
         header("Location: register.php");
     }
@@ -22,6 +23,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
         <script src="../assets/js/script.js"></script>
+
         <link rel="stylesheet" href="assets/css/style.css">
         <title>Tsudo Stream</title>
         <link rel="shortcut icon" href="favicon.ico" />
