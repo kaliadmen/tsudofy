@@ -8,18 +8,6 @@ let mouseDown = false;
 let repeat = false;
 let shuffle = false;
 
-
-function openPage(url) {
-    if(url.indexOf("?" === -1)){
-        url = url + "?";
-    }
-
-    let encodedUrl = encodeURI(url + "&loggedInUser=" + loggedInUser);
-    $("#main-content").load(encodedUrl);
-    $("body").scrollTop(0);
-    history.pushState(null, null, url);
-}
-
 function Audio(){
 
     this.currentPlaying;
@@ -91,4 +79,18 @@ function shuffleArray(array) {
         [array[i], array[j]] = [array[j], array[i]];
     }
     return array;
+}
+
+function openPage(url) {
+    if(url.indexOf("?") == -1){
+        url = url + "?";
+    }
+    let encodedUrl = encodeURI(url + "&loggedInUser=" + loggedInUser);
+    $("#main-content").load(encodedUrl);
+    $("body").scrollTop(0);
+    history.pushState(null, null, url);
+}
+
+function playFirstSong() {
+    setTrack(tempPlaylist[0], tempPlaylist, true);
 }

@@ -17,6 +17,38 @@ body{
     min-width: 720px;
 }
 
+.button{
+    color: #fff;
+    cursor: pointer;
+    margin-bottom: 10px;
+    background-color: transparent;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border: 2px solid #fff;
+    border-radius: 400px;
+    padding: 15px;
+    min-width: 125px;
+}
+
+.button.green{
+    background-color: #01fa00;
+    border-color: #01fa00;
+    color: #282828;
+}
+
+.button.green:hover{
+    color: #fff;
+}
+
+.border-bottom{
+    border-bottom: 1px solid #939393;
+    margin-bottom: 20px;
+}
+
+[role="link"]{
+    cursor: pointer;
+}
+
 /*Top section*/
 #top-container{
     min-height: 100%;
@@ -230,6 +262,13 @@ body{
     text-align: right;
 }
 
+.artist-info{
+    text-align: center;
+}
+
+.tracklist-container h2, .grid-view-container h2{
+    text-align: center;
+}
 
 /*Bottom section*/
 #now-playing-bar-container{
