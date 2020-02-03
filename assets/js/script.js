@@ -1,12 +1,13 @@
-let currentPlaylist = [];
-let shufflePlaylist = [];
-let tempPlaylist = [];
-let currentPlaylistIndex = 0;
-let audioElement;
-let loggedInUser;
-let mouseDown = false;
-let repeat = false;
-let shuffle = false;
+var currentPlaylist = [];
+var shufflePlaylist = [];
+var tempPlaylist = [];
+var currentPlaylistIndex = 0;
+var audioElement;
+var loggedInUser;
+var timer;
+var mouseDown = false;
+var repeat = false;
+var shuffle = false;
 
 function Audio(){
 
@@ -51,16 +52,16 @@ function Audio(){
 }
 
 function formatTime(seconds) {
-    let time = Math.round(seconds);
-    let mins = Math.floor(time/60);
-    let secs = time - mins * 60;
-    let addedZero = (secs < 10) ? '0' : '';
+    var time = Math.round(seconds);
+    var mins = Math.floor(time/60);
+    var secs = time - mins * 60;
+    var addedZero = (secs < 10) ? '0' : '';
 
     return mins + ":" + addedZero + secs;
 }
 
 function updateTimeProgressBar(audio) {
-    let progress = audio.currentTime / audio.duration * 100;
+    var progress = audio.currentTime / audio.duration * 100;
 
     $(".progress-time.current").text(formatTime(audio.currentTime));
     $(".progress-time.remaining").text(formatTime(audio.duration - audio.currentTime));
@@ -68,13 +69,13 @@ function updateTimeProgressBar(audio) {
 }
 
 function updateVolumeProgressBar(audio) {
-    let volume = audio.volume * 100;
+    var volume = audio.volume * 100;
 
     $(".volume-bar .progress").css("width", volume + "%");
 }
 
 function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i--) {
+    for (var i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] = [array[j], array[i]];
     }
@@ -82,10 +83,14 @@ function shuffleArray(array) {
 }
 
 function openPage(url) {
+    if(timer !== null){
+        clearTimeout(timer);
+    }
+
     if(url.indexOf("?") == -1){
         url = url + "?";
     }
-    let encodedUrl = encodeURI(url + "&loggedInUser=" + loggedInUser);
+    var encodedUrl = encodeURI(url + "&loggedInUser=" + loggedInUser);
     $("#main-content").load(encodedUrl);
     $("body").scrollTop(0);
     history.pushState(null, null, url);

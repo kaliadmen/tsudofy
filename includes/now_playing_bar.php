@@ -12,7 +12,7 @@
 
 <script>
    $(document).ready(function() {
-       let newPlaylist = <?php echo $jsonArray;?>;
+       var newPlaylist = <?php echo $jsonArray;?>;
        audioElement = new Audio();
        setTrack(newPlaylist[0], newPlaylist, false);
        updateVolumeProgressBar(audioElement.audio);
@@ -46,7 +46,7 @@
 
        $(".volume-bar .progress-bar").mousemove(function(e) {
            if(mouseDown){
-               let percentage = e.offsetX / $(this).width();
+               var percentage = e.offsetX / $(this).width();
 
                if(percentage >= 0 && percentage <= 1){
                    audioElement.audio.volume = percentage;
@@ -55,7 +55,7 @@
        });
 
        $(".volume-bar .progress-bar").mouseup(function(e) {
-           let percentage = e.offsetX / $(this).width();
+           var percentage = e.offsetX / $(this).width();
 
            if(percentage >= 0 && percentage <= 1){
                audioElement.audio.volume = percentage;
@@ -84,25 +84,25 @@
        pauseSong();
 
          $.post("./includes/handlers/ajax/getSongJson.php", {trackId: trackId}, function(data) {
-             let track = JSON.parse(data);
+             var track = JSON.parse(data);
 
              $(".track-name span").text(track.title);
 
              $.post("./includes/handlers/ajax/getArtistJson.php", {artistId: track.artist}, function(data) {
-                 let artist = JSON.parse(data);
+                 var artist = JSON.parse(data);
 
-                 $(".artist-name span").text(artist.name);
+                 $(".track-info .artist-name span").text(artist.name);
 
-                 $(".artist-name span").attr("onclick", "openPage('artist.php?id=" + artist.id + "')");
+                 $(".track-info .artist-name span").attr("onclick", "openPage('artist.php?id=" + artist.id + "')");
              });
 
              $.post("./includes/handlers/ajax/getAlbumJson.php", {albumId: track.album}, function(data) {
-                 let album = JSON.parse(data);
+                 var album = JSON.parse(data);
 
-                 $(".album-link img").attr("src", album.artwork_path);
+                 $(".content .album-link img").attr("src", album.artwork_path);
 
-                 $(".album-link img").attr("onclick", "openPage('album.php?id=" + album.id + "')");
-                 $(".track-name span").attr("onclick", "openPage('album.php?id=" + album.id + "')");
+                 $(".content .album-link img").attr("onclick", "openPage('album.php?id=" + album.id + "')");
+                 $(".track-info .track-name span").attr("onclick", "openPage('album.php?id=" + album.id + "')");
              });
 
              audioElement.setTrack(track);
@@ -143,7 +143,7 @@
            currentPlaylistIndex++;
        }
 
-       let trackToPlay = shuffle ? shufflePlaylist[currentPlaylistIndex] : currentPlaylist[currentPlaylistIndex];
+       var trackToPlay = shuffle ? shufflePlaylist[currentPlaylistIndex] : currentPlaylist[currentPlaylistIndex];
        setTrack(trackToPlay, currentPlaylist, true);
    }
 
@@ -159,19 +159,19 @@
    
    function setRepeat() {
         repeat = !repeat;
-        let imageName = repeat ? "repeat-active.png" : "repeat.png";
+        var imageName = repeat ? "repeat-active.png" : "repeat.png";
         $(".control-button.repeat img").attr("src", "./assets/images/icons/" + imageName);
    }
 
    function setMute() {
        audioElement.audio.muted = !audioElement.audio.muted;
-       let imageName = audioElement.audio.muted ? "volume-mute.png" : "volume.png";
+       var imageName = audioElement.audio.muted ? "volume-mute.png" : "volume.png";
        $(".control-button.volume img").attr("src", "./assets/images/icons/" + imageName);
    }
 
    function setShuffle() {
        shuffle = !shuffle;
-       let imageName = shuffle ? "shuffle-active.png" : "shuffle.png";
+       var imageName = shuffle ? "shuffle-active.png" : "shuffle.png";
        $(".control-button.shuffle img").attr("src", "./assets/images/icons/" + imageName);
 
        if(shuffle === true){
@@ -183,8 +183,8 @@
    }
 
    function timeFromOffset(mouse, progressBar) {
-       let percentage = mouse.offsetX / $(progressBar).width() * 100;
-       let seconds = audioElement.audio.duration * (percentage / 100);
+       var percentage = mouse.offsetX / $(progressBar).width() * 100;
+       var seconds = audioElement.audio.duration * (percentage / 100);
 
        audioElement.setTime(seconds);
    }

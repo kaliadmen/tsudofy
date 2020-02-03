@@ -1,2 +1,2 @@
 <?php include("./includes/includedFiles.php"); ?>
-<script>openPage('browse.php');</script>
+<script>openPage("browse.php");</script>
