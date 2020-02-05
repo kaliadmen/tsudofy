@@ -87,7 +87,7 @@ function openPage(url) {
         clearTimeout(timer);
     }
 
-    if(url.indexOf("?") == -1){
+    if(url.indexOf("?") === -1){
         url = url + "?";
     }
     var encodedUrl = encodeURI(url + "&loggedInUser=" + loggedInUser);
@@ -98,4 +98,41 @@ function openPage(url) {
 
 function playFirstSong() {
     setTrack(tempPlaylist[0], tempPlaylist, true);
+}
+
+// TODO Refactor to not use default prompt
+function createPlaylist(){
+    var alertPrompt = prompt("PLease enter the name of your playlist");
+
+    if(alertPrompt !== ''){
+        $.post("./includes/handlers/ajax/createPlaylist.php", {name: alertPrompt, username: loggedInUser})
+            .done(function(error) {
+                if(error){
+                    alert(error);
+                }
+                else{
+                    openPage("your_music.php");
+                }
+            })
+    }else{
+        alert("error");
+    }
+}
+
+function deletePlaylist(playlistId){
+    var alertPrompt = confirm("Are you sure you want to delete this playlist?");
+
+    if(alertPrompt){
+        $.post("./includes/handlers/ajax/deletePlaylist.php", {playlistId: playlistId})
+            .done(function(error) {
+                if(error){
+                    alert(error);
+                }
+                else{
+                    openPage("your_music.php");
+                }
+            })
+    }else{
+        alert("Error");
+    }
 }

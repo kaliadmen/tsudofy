@@ -1,27 +1,23 @@
 <?php
     if(isset($_SERVER['HTTP_X_REQUESTED_WITH'])){
         include ("includes/config.php");
+        include ("includes/classes/User.php");
         //Artist class must be included before Album class. The Album class returns an Artist is some functions
         include("includes/classes/Artist.php");
         include("includes/classes/Album.php");
         include("includes/classes/Song.php");
-        if(isset($_SESSION['userLoggedIn'])){
-            $userLoggedIn = $_SESSION['userLoggedIn'];
-            echo "<script>loggedInUser = '".$userLoggedIn."';</script>";
-        } else{
-            header("Location: register.php");
+        include("includes/classes/Playlist.php");
+
+        if(isset($_GET['loggedInUser'])){
+            $loggedInUser = new User($connection, $_GET['loggedInUser']);
+        }else{
+            echo "username was not passed into page";
+            exit();
         }
 
     }else{
         include("includes/header.php");
         include("includes/footer.php");
-
-        if(isset($_SESSION['userLoggedIn'])){
-            $userLoggedIn = $_SESSION['userLoggedIn'];
-            echo "<script>loggedInUser = '".$userLoggedIn."';</script>";
-        } else{
-            header("Location: register.php");
-        }
 
         $url = $_SERVER['REQUEST_URI'];
         echo "<script> openPage('$url');</script>";
