@@ -73,8 +73,9 @@
 					</div>
 
 					<div class='track-options'>
-						<img class='options-button' src='assets/images/icons/more.png'>
-					</div>
+                        <input type='hidden' class='song-id' value='". $albumSong->getId() ."'>
+                            <img src='./assets/images/icons/more.png' alt='Options' class='options-button' onclick='showOptionsMenu(this)'>
+                        </div>
 
 					<div class='track-duration'>
 						<span class='duration'>" . $albumSong->getDuration() . "</span>
@@ -95,6 +96,13 @@
 
     </ul>
 </div>
+
+<nav class="options-menu">
+    <input type="hidden" class="song-id">
+    <?php echo Playlist::getPlaylistDropdown($connection, $loggedInUser->getUsername()); ?>
+    <div class="item">Copy song link</div>
+</nav>
+
 <div class="artist-container border-bottom">
     <h2>Artist</h2>
     <?php

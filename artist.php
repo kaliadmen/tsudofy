@@ -46,7 +46,8 @@
                             <span class='artist-name'>".$albumArtist->getName()."</span>
                         </div>
                         <div class='track-options'>
-                            <img src='./assets/images/icons/more.png' alt='Options' class='options-button'>
+                        <input type='hidden' class='song-id' value='". $albumSong->getId() ."'>
+                            <img src='./assets/images/icons/more.png' alt='Options' class='options-button' onclick='showOptionsMenu(this)'>
                         </div>
                         <div class='track-duration'>
                             <span class='duration'>".$albumSong->getDuration()."</span>
@@ -62,6 +63,13 @@
         </script>
     </ul>
 </div>
+
+<nav class="options-menu">
+    <input type="hidden" class="song-id">
+    <?php echo Playlist::getPlaylistDropdown($connection, $loggedInUser->getUsername()); ?>
+    <div class="item">Copy song link</div>
+</nav>
+
 <div class="grid-view-container">
     <h2>ALBUMS</h2>
     <?php

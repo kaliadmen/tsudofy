@@ -51,7 +51,8 @@ function makePlural($item){
                             <span class='artist-name'>".$songArtist->getName()."</span>
                         </div>
                         <div class='track-options'>
-                            <img src='./assets/images/icons/more.png' alt='Options' class='options-button'>
+                        <input type='hidden' class='song-id' value='". $playlistSong->getId() ."'>
+                            <img src='./assets/images/icons/more.png' alt='Options' class='options-button' onclick='showOptionsMenu(this)'>
                         </div>
                         <div class='track-duration'>
                             <span class='duration'>".$playlistSong->getDuration()."</span>
@@ -68,4 +69,8 @@ function makePlural($item){
     </ul>
 </div>
 
-
+<nav class="options-menu">
+    <input type="hidden" class="song-id">
+    <?php echo Playlist::getPlaylistDropdown($connection, $loggedInUser->getUsername()); ?>
+    <div class="item" onclick="deleteFromPlaylist(this, '<?php echo $playlistId?>')">Remove from playlist</div>
+</nav>
