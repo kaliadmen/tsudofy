@@ -104,7 +104,7 @@ function playFirstSong() {
 function createPlaylist(){
     var alertPrompt = prompt("Please enter the name of your playlist");
 
-    if(alertPrompt !== ''){
+    if(alertPrompt !== '' && alertPrompt !== null){
         $.post("./includes/handlers/ajax/createPlaylist.php", {name: alertPrompt, username: loggedInUser})
             .done(function(error) {
                 if(error){
@@ -174,6 +174,38 @@ function hideOptionsMenu() {
     }
 }
 
+function logout(){
+    $.post("./includes/handlers/ajax/logout.php",function() {
+        location.reload();
+    })
+}
+
+function updateEmail(emailClass){
+    var emailValue = $("." + emailClass).val();
+
+    $.post("./includes/handlers/ajax/updateEmail.php", {email: emailValue, username: loggedInUser})
+        .done(function(res) {
+            $("." + emailClass).nextAll(".message").text(res);
+            hideMsg(".message");
+        })
+}
+
+function updatePassword(oldPasswordClass, newPasswordClass, newPasswordConfirmedClass){
+    var oldPasswordValue = $("." + oldPasswordClass).val();
+    var newPasswordValue = $("." + newPasswordClass).val();
+    var newPasswordConfirmedValue = $("." + newPasswordConfirmedClass).val();
+
+    $.post("./includes/handlers/ajax/updatePassword.php",
+        {oldPassword: oldPasswordValue,
+         newPassword: newPasswordValue,
+         confirmedPassword: newPasswordConfirmedValue,
+         username: loggedInUser
+        }).done(function(res) {
+            $("." + oldPasswordClass).nextAll(".message").text(res);
+            hideMsg(".message");
+        });
+}
+
 $(document).click(function(clickEvent) {
     var target = $(clickEvent.target);
 
@@ -201,3 +233,12 @@ $(document).on("change", "select.playlist", function() {
             select.val("");
         });
 });
+
+
+function hideMsg(el){
+    $(el).fadeOut(5000,"linear",function() {
+        $(".message").text("");
+        $(".message").css("display", "block");
+    });
+    }
+

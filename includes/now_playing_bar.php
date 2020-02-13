@@ -17,10 +17,6 @@
        setTrack(newPlaylist[0], newPlaylist, false);
        updateVolumeProgressBar(audioElement.audio);
 
-       $("#now-playing-bar-container").on("mousedown touchstart mousemove touchmove", function(e) {
-            e.preventDefault();
-       });
-
        $(".playback-bar .progress-bar").mousedown(function() {
             mouseDown = true;
         });

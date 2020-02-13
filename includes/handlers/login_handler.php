@@ -12,7 +12,7 @@ if(isset($_POST['login-button'])){
     $wasSuccessful = $account->login($username, $password);
 
     if($wasSuccessful){
-        $_SESSION['userLoggedIn'] = $username;
+        $_SESSION['userLoggedIn'] = ucfirst($username);
         header("Location: index.php");
     }
 }

@@ -1,7 +1,7 @@
 <?php
     include("../../config.php");
 
-    if(isset($_POST['name']) && isset($_POST['username'])){
+    if(isset($_POST['name']) && isset($_POST['username']) && $_POST['namme'] != ''){
         $name = $_POST['name'];
         $username = $_POST['username'];
         $date =date("Y-m-d");

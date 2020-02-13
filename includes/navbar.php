@@ -19,7 +19,7 @@
                 <span role="link" tabindex="0" onclick="openPage('your_music.php')" class="nav-item-link">Your Music</span>
             </div>
             <div class="nav-item">
-                <span role="link" tabindex="0" onclick="openPage('profile.php')" class="nav-item-link">Kei Nagase</span>
+                <span role="link" tabindex="0" onclick="openPage('settings.php')" class="nav-item-link"><?php echo $loggedInUser->getUsername();?></span>
             </div>
         </div>
     </nav>
